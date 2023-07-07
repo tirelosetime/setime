@@ -1,0 +1,13 @@
+CREATE DATABASE Tirelo
+
+create table Employee(
+employeeID int identity(1,1) primary key NOT NULL,
+Salary int
+);
+insert into Employee values
+(100),
+(200),
+(300),
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);
