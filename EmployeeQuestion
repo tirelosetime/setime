@@ -4,10 +4,24 @@ create table Employee(
 employeeID int identity(1,1) primary key NOT NULL,
 Salary int
 );
+
 insert into Employee values
 (100),
 (200),
 (300),
-SELECT MAX(Salary) AS SecondHighestSalary
-FROM Employee
-WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+SELECT MAX(Salary) AS SecondHighestSalary FROM Employee WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+create table person(
+personID int identity(1,1) primary key NOT NULL,
+Email char(25)
+);
+
+insert into person values
+('a@b.com'),
+('c@d.com'),
+('e@f.com'),
+('a@b.com'),
+('g@f.com'),
+
+SELECT Email, COUNT(*) AS DuplicateCount FROM Person GROUP BY Email HAVING COUNT(*) > 1;
